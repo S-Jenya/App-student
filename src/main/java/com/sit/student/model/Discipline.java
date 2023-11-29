@@ -1,5 +1,6 @@
 package com.sit.student.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -21,6 +22,7 @@ public class Discipline {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_student", nullable = false)
+    @JsonIgnore
     private Student student;
 
     @NotBlank(message = "Поле наименования дисциплины не может быть пустым")
@@ -37,6 +39,7 @@ public class Discipline {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY,
             orphanRemoval = true)
+    @JsonIgnore
     private List<Classes> classes;
 
     public Discipline(Student student, String name, int hours) {

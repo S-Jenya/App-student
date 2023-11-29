@@ -1,5 +1,6 @@
 package com.sit.student.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -36,6 +37,7 @@ public class Student {
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER,
             orphanRemoval = true)
+    @JsonIgnore
     private List<Discipline> disciplines;
 
     public Student(String sname, String fname, String pname) {
