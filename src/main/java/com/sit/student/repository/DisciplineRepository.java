@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface DisciplineRepository extends JpaRepository<Discipline, Long> {
+public interface DisciplineRepository extends JpaRepository<Discipline, Integer> {
     List<Discipline> getDisciplineByStudentId(int id);
 }
